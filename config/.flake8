@@ -1,7 +1,7 @@
 [flake8]
-show-source = true
-extend-ignore = E203
-exclude =
-    # No need to traverse our git directory
-    .git
-max-complexity = 10
+accept-encodings = utf-8
+exclude = .git, venv, .tox, .eggs, dist, build
+max-line-length = 160
+max_complexity = 10
+ignore = D401,E501
+doctests = True
