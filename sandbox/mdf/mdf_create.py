@@ -20,4 +20,4 @@ sig = Signal(
 )
 sigs.append(sig)
 mdf.append(sigs, comment="single dimensional channels", common_timebase=True)
-mdf.save("demo.mf4", overwrite=True)
+mdf.save("demo-1.mf4", overwrite=True)
