@@ -19,6 +19,5 @@ sig = Signal(
     comment="Unsigned 64 bit channel {}",
 )
 sigs.append(sig)
-
 mdf.append(sigs, comment="single dimensional channels", common_timebase=True)
 mdf.save("demo.mf4", overwrite=True)
