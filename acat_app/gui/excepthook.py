@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
 import traceback
 
 from datetime import datetime
 from io import StringIO
+"""
+import logging
 
 
 def excepthook(exc_type, exc_value, tracebackobj):
@@ -18,6 +21,7 @@ def excepthook(exc_type, exc_value, tracebackobj):
     tracebackobj : traceback
         traceback object
     """
+    """
     separator = "-" * 80
     notice = "The following error was triggered:"
 
@@ -29,6 +33,7 @@ def excepthook(exc_type, exc_value, tracebackobj):
     info = info.read()
 
     errmsg = f"{exc_type}\t \n{exc_value}"
+
     sections = [now, separator, errmsg, separator, info]
     msg = "\n".join(sections)
 
@@ -37,6 +42,11 @@ def excepthook(exc_type, exc_value, tracebackobj):
 
     print(notice)
     print(msg)
+    """
+    acat_logger = logging.getLogger("rich")
+    acat_logger.error(
+        "Unexpected exception", exc_info=(exc_type, exc_value, tracebackobj)
+    )
 
 
 """
