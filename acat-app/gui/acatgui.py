@@ -7,7 +7,7 @@ import sys
 import random
 
 from PySide6 import QtWidgets, QtCore
-from utils import excepthook
+import excepthook
 
 
 os.environ["QT_API"] = "pyside6"
