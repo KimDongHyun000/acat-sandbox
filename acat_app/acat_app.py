@@ -2,8 +2,8 @@
 import argparse
 import os
 import sys
-from excepthook import excepthook
-from logger import set_logger
+from base.utils.excepthook import excepthook
+from base.utils.logger import set_logger
 
 os.environ["QT_API"] = "pyside6"
 os.environ["PYQTGRAPH_QT_LIB"] = "PySide6"
