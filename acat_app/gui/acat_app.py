@@ -2,36 +2,12 @@
 import argparse
 import os
 import sys
-import random
-import excepthook
-
-from PySide6 import QtWidgets, QtCore
-
-sys.excepthook = excepthook
+from excepthook import excepthook
+from logger import set_logger
 
 os.environ["QT_API"] = "pyside6"
 os.environ["PYQTGRAPH_QT_LIB"] = "PySide6"
 os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"
-
-
-class MyWidget(QtWidgets.QWidget):
-    def __init__(self):
-        super().__init__()
-
-        self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
-
-        self.button = QtWidgets.QPushButton("Click me!")
-        self.text = QtWidgets.QLabel("Hello World", alignment=QtCore.Qt.AlignCenter)
-
-        self.layout = QtWidgets.QVBoxLayout(self)
-        self.layout.addWidget(self.text)
-        self.layout.addWidget(self.button)
-
-        self.button.clicked.connect(self.magic)
-
-    @QtCore.Slot()
-    def magic(self):
-        self.text.setText(random.choice(self.hello))
 
 
 def _cmd_line_parser():
@@ -41,14 +17,18 @@ def _cmd_line_parser():
 
 
 def main(measurements=None):
+
+    sys.excepthook = excepthook
+    logger = set_logger()
+
+    for i in range(3, -1, -1):
+        num = 1 / i
+        logger.info(f"1/{i} = {num}")
+
     parser = _cmd_line_parser()
     args = parser.parse_args(sys.argv[1:])
     print(args)
-    app = QtWidgets.QApplication([])
-    widget = MyWidget()
-    widget.resize(800, 600)
-    widget.show()
-    sys.exit(app.exec())
+    sys.exit()
 
 
 if __name__ == "__main__":
