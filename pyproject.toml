@@ -13,10 +13,10 @@ extend-exclude = '''
 # We use preview style for formatting Black itself. If you
 # want stable formatting across releases, you should keep
 # this off.
-preview = true
+preview = false
 
 [project]
 name = "black"
 description = "The uncompromising code formatter."
 requires-python = ">=3.7"
-authors = [{ name = "jonghwan", email = "namjh@thecp6.onmicrosoft.com" }]
+authors = [{ name = "jonghwannam", email = "namjh@thecp6.onmicrosoft.com" }]
