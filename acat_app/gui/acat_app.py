@@ -2,19 +2,16 @@
 import argparse
 import os
 import sys
-
-# import pyqtgraph
 import random
+import excepthook
 
 from PySide6 import QtWidgets, QtCore
-import acat_app.base.excepthook as excepthook
 
+sys.excepthook = excepthook
 
 os.environ["QT_API"] = "pyside6"
 os.environ["PYQTGRAPH_QT_LIB"] = "PySide6"
 os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"
-
-sys.excepthook = excepthook
 
 
 class MyWidget(QtWidgets.QWidget):
@@ -47,16 +44,12 @@ def main(measurements=None):
     parser = _cmd_line_parser()
     args = parser.parse_args(sys.argv[1:])
     print(args)
-
-
-if __name__ == "__main__":
-    # main()
     app = QtWidgets.QApplication([])
-
     widget = MyWidget()
     widget.resize(800, 600)
     widget.show()
-
     sys.exit(app.exec())
 
-#
+
+if __name__ == "__main__":
+    main()
