@@ -27,7 +27,9 @@ setup(
         "License :: OSI Approved :: LGPLv3+",
         "Programming Language :: Python :: 3.11",
     ],
-    packages=find_packages(include="acat_app"),
+    packages=find_packages(
+        include="acat_app*",
+    ),
     install_requires=install_requires,
     extras_require={
         "gui": [
