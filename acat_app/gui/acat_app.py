@@ -12,7 +12,7 @@ os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "0"
 
 def _cmd_line_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--measurements", nargs="*", help="list of measurement files")
+    parser.add_argument("--measurements", nargs="*", help="list of acat's case files")
     return parser
 
 
@@ -21,6 +21,7 @@ def main(measurements=None):
     sys.excepthook = excepthook
     logger = set_logger()
 
+    # 예외 처리 샘플 코드
     for i in range(3, -1, -1):
         num = 1 / i
         logger.info(f"1/{i} = {num}")
