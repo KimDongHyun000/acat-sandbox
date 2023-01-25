@@ -2,7 +2,7 @@
 
 import logging
 
-logger = logging.getLogger("acat")
+logger = logging.getLogger("acat-app")
 formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
 console = logging.StreamHandler()
 console.setFormatter(formatter)

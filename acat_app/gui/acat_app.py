@@ -7,7 +7,7 @@ import sys
 import random
 
 from PySide6 import QtWidgets, QtCore
-import excepthook
+import acat_app.base.excepthook as excepthook
 
 
 os.environ["QT_API"] = "pyside6"
@@ -47,15 +47,6 @@ def main(measurements=None):
     parser = _cmd_line_parser()
     args = parser.parse_args(sys.argv[1:])
     print(args)
-    """
-    app = pyqtgraph.mkQApp()
-    app.setOrganizationName("cp6")
-    app.setOrganizationDomain("cp6-acat-investigator")
-    app.setApplicationName("acat")
-    # main = MainWindow(args.measurements)
-    app.setStyle(QtWidgets.QStyleFactory.create("Fusion"))
-    app.exec()
-    """
 
 
 if __name__ == "__main__":
@@ -67,3 +58,5 @@ if __name__ == "__main__":
     widget.show()
 
     sys.exit(app.exec())
+
+#
