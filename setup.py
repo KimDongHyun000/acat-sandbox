@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from pathlib import Path
 from setuptools import find_packages, setup
 
 PROJECT_PATH = Path(__file__).parent
+print(PROJECT_PATH)
 
-with (PROJECT_PATH / "requirements_dev.txt").open() as req_file:
+with (PROJECT_PATH / "requirements_dev.txt").open("rt", encoding="euc-kr") as req_file:
     install_requires = [line.strip() for line in req_file.readlines()]
 
 
@@ -27,9 +30,6 @@ setup(
         "License :: OSI Approved :: LGPLv3+",
         "Programming Language :: Python :: 3.11",
     ],
-    packages=find_packages(
-        include="acat_app*",
-    ),
     install_requires=install_requires,
     extras_require={
         "gui": [
@@ -42,7 +42,17 @@ setup(
             "scipy<1.8.0",
         ]
     },
-    package_data={"acat_app": ["acat_app/gui/ui/*.ui"]},
+    packages=find_packages(
+        include="acat_app*",
+    ),
+    package_dir={"acat-sandbox": "acat_app"},
+    package_data={
+        "acat-sandbox": [
+            "acat_app/3rdparty/*",
+            "acat_app/base/*",
+            "acat_app/gui/ui/*.ui",
+        ]
+    },
     include_package_data=True,
     entry_points={"console_scripts": ["acat_app = acat_app.gui.acat_app:main [gui]"]},
 )
