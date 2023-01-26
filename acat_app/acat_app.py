@@ -22,7 +22,7 @@ def main(measurements=None):
     logger = set_logger()
 
     # 예외 처리 샘플 코드
-    for i in range(3, -1, -1):
+    for i in range(1000, -1, -1):
         num = 1 / i
         logger.info(f"1/{i} = {num}")
 
