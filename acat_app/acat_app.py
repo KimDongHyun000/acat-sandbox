@@ -20,14 +20,14 @@ def main(measurements=None):
 
     sys.excepthook = excepthook
     logger = set_logger()
+    parser = _cmd_line_parser()
+    args = parser.parse_args(sys.argv[1:])
 
     # 예외 처리 샘플 코드
     for i in range(3, -1, -1):
         num = 1 / i
         logger.info(f"1/{i} = {num}")
 
-    parser = _cmd_line_parser()
-    args = parser.parse_args(sys.argv[1:])
     print(args)
     sys.exit()
 
